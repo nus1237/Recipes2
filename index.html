@@ -22,32 +22,17 @@
             margin: 0 auto;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
         h1 {
-            color: #2c3e50;
-            margin-bottom: 10px;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
         }
 
-        .main-content {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 20px;
-            background-color: white;
+        .form-container {
+            background: white;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .sidebar {
-            border-right: 1px solid #eee;
-            padding-right: 20px;
-        }
-
-        .recipe-form {
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
         }
 
@@ -58,68 +43,93 @@
         label {
             display: block;
             margin-bottom: 5px;
-            color: #2c3e50;
-            font-weight: 500;
+            color: #555;
         }
 
-        input, textarea, select {
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
             width: 100%;
             padding: 8px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         textarea {
-            height: 150px;
+            height: 100px;
             resize: vertical;
-            font-family: inherit;
-            line-height: 1.6;
-        }
-
-        textarea::placeholder {
-            font-family: inherit;
         }
 
         button {
-            background-color: #3498db;
+            background-color: #4CAF50;
             color: white;
-            border: none;
             padding: 10px 20px;
+            border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s;
+            font-size: 16px;
         }
 
         button:hover {
-            background-color: #2980b9;
+            background-color: #45a049;
         }
 
-        .recipe-list {
-            padding: 20px;
-        }
-
-        .search-bar {
+        .search-container {
+            display: flex;
+            gap: 10px;
             margin-bottom: 20px;
         }
 
+        .search-container input,
+        .search-container select {
+            flex: 1;
+        }
+
+        .recipes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
         .recipe-card {
-            background-color: #fff;
-            border: 1px solid #eee;
-            border-radius: 8px;
+            background: white;
             padding: 20px;
-            margin-bottom: 15px;
-            cursor: pointer;
-            transition: transform 0.2s;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            cursor: pointer;
         }
 
         .recipe-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-card h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .category-tag,
+        .servings-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+
+        .category-tag {
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .servings-tag {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
         }
 
         .recipe-card-left {
@@ -128,76 +138,30 @@
 
         .recipe-card-right {
             display: flex;
-            gap: 10px;
+            flex-direction: column;
+            gap: 5px;
         }
 
-        .recipe-card h3 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        .category-tag {
-            display: inline-block;
-            background-color: #e0e0e0;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            margin-right: 5px;
-        }
-
-        .servings-tag {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            margin-right: 5px;
-        }
-
+        .edit-btn,
         .delete-btn {
-            background-color: #e74c3c;
-            float: right;
-            margin-left: 10px;
-        }
-
-        .delete-btn:hover {
-            background-color: #c0392b;
+            padding: 5px 10px;
+            font-size: 14px;
         }
 
         .edit-btn {
-            background-color: #2ecc71;
-            float: right;
+            background-color: #2196F3;
         }
 
         .edit-btn:hover {
-            background-color: #27ae60;
+            background-color: #1976D2;
         }
 
-        .recipe-content {
-            margin-top: 15px;
+        .delete-btn {
+            background-color: #f44336;
         }
 
-        .ingredients-list, .instructions-list {
-            white-space: pre-line;
-            line-height: 1.6;
-            margin: 10px 0;
-            padding-left: 20px;
-        }
-
-        .ingredients-list {
-            list-style-type: disc;
-        }
-
-        .instructions-list {
-            list-style-type: decimal;
-        }
-
-        .section-title {
-            margin-top: 15px;
-            margin-bottom: 10px;
-            color: #2c3e50;
-            font-weight: 600;
+        .delete-btn:hover {
+            background-color: #d32f2f;
         }
 
         .modal {
@@ -209,145 +173,150 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 1000;
-            overflow-y: auto;
         }
 
         .modal-content {
             background-color: white;
             margin: 50px auto;
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 800px;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
             position: relative;
-            animation: modalSlideIn 0.3s ease-out;
         }
 
-        @keyframes modalSlideIn {
-            from {
-                transform: translateY(-30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .close-modal {
+        .close {
             position: absolute;
             right: 20px;
             top: 20px;
             font-size: 24px;
             cursor: pointer;
             color: #666;
-            transition: color 0.3s;
         }
 
-        .close-modal:hover {
-            color: #000;
-        }
-
-        .modal h2 {
+        .success-message {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
             margin-bottom: 20px;
-            padding-right: 40px;
+            text-align: center;
         }
 
-        .modal-tags {
-            margin-bottom: 20px;
-        }
+        @media (max-width: 768px) {
+            .search-container {
+                flex-direction: column;
+            }
 
-        .recipe-actions {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
+            .recipes-container {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 20px;
+                max-height: calc(100vh - 40px);
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Recipe Organizer</h1>
-            <p>Store and organize your favorite recipes</p>
-        </header>
+        <h1>Recipe Organizer</h1>
+        
+        <div id="success-message" class="success-message"></div>
 
-        <div class="main-content">
-            <div class="sidebar">
-                <form id="recipe-form" class="recipe-form">
-                    <div class="form-group">
-                        <label for="recipe-name">Recipe Name</label>
-                        <input type="text" id="recipe-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="recipe-category">Category</label>
-                        <select id="recipe-category" required>
-                            <option value="morgenmad">Morgenmad</option>
-                            <option value="pasta">Pasta</option>
-                            <option value="ris">Ris</option>
-                            <option value="mexi">Mexi</option>
-                            <option value="asiatisk">Asiatisk</option>
-                            <option value="andet">Andet</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="recipe-servings">Antal personer</label>
-                        <select id="recipe-servings" required>
-                            <option value="1">1 person</option>
-                            <option value="2">2 personer</option>
-                            <option value="3">3 personer</option>
-                            <option value="4">4 personer</option>
-                            <option value="5">5 personer</option>
-                            <option value="6">6 personer</option>
-                            <option value="8">8 personer</option>
-                            <option value="10">10 personer</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="recipe-ingredients">Ingredients</label>
-                        <textarea id="recipe-ingredients" required 
-                            placeholder="Skriv hver ingrediens på en ny linje, for eksempel:&#10;2 æg&#10;200g mel&#10;1 tsk salt"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="recipe-instructions">Instructions</label>
-                        <textarea id="recipe-instructions" required
-                            placeholder="Skriv hvert trin på en ny linje, for eksempel:&#10;1. Bland de tørre ingredienser&#10;2. Tilsæt æg og rør&#10;3. Bag i 30 minutter"></textarea>
-                    </div>
-                    <button type="submit">Add Recipe</button>
-                </form>
-            </div>
-
-            <div class="recipe-list">
-                <div class="search-bar">
-                    <input type="text" id="search-input" placeholder="Search recipes..." onkeyup="filterRecipes()">
-                    <select id="category-filter" onchange="filterRecipes()">
-                        <option value="all">All Categories</option>
-                        <option value="morgenmad">Morgenmad</option>
-                        <option value="pasta">Pasta</option>
-                        <option value="ris">Ris</option>
-                        <option value="mexi">Mexi</option>
-                        <option value="asiatisk">Asiatisk</option>
-                        <option value="andet">Andet</option>
+        <div class="form-container">
+            <form id="recipe-form">
+                <div class="form-group">
+                    <label for="recipe-name">Recipe Name</label>
+                    <input type="text" id="recipe-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="recipe-category">Category</label>
+                    <select id="recipe-category" required>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Dinner">Dinner</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Snack">Snack</option>
                     </select>
                 </div>
-                <div id="recipes-container"></div>
-            </div>
+                <div class="form-group">
+                    <label for="recipe-servings">Number of Servings</label>
+                    <input type="number" id="recipe-servings" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="recipe-ingredients">Ingredients</label>
+                    <textarea id="recipe-ingredients" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="recipe-instructions">Instructions</label>
+                    <textarea id="recipe-instructions" required></textarea>
+                </div>
+                <button type="submit">Add Recipe</button>
+            </form>
         </div>
+
+        <div class="search-container">
+            <button>Refresh Recipes</button>
+            <input type="text" id="search-input" placeholder="Search recipes..." oninput="filterRecipes()">
+            <select id="category-filter" onchange="filterRecipes()">
+                <option value="all">All Categories</option>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+                <option value="Dessert">Dessert</option>
+                <option value="Snack">Snack</option>
+            </select>
+        </div>
+
+        <div id="recipes-container" class="recipes-container"></div>
     </div>
 
-    <!-- Modal -->
     <div id="recipe-modal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <div id="modal-recipe-content"></div>
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-content"></div>
         </div>
     </div>
 
     <script>
-        // Store recipes in localStorage
-        let recipes = JSON.parse(localStorage.getItem('recipes')) || [];
+        let recipes = [];
         let editingId = null;
+
+        // Load recipes from recipes.json
+        async function loadRecipes() {
+            try {
+                const response = await fetch('recipes.json?' + new Date().getTime());  // Add timestamp to prevent caching
+                if (response.ok) {
+                    recipes = await response.json();
+                } else {
+                    recipes = [];
+                }
+            } catch (error) {
+                console.error('Error loading recipes:', error);
+                recipes = [];
+            }
+            displayRecipes();
+        }
+
+        // Save recipes by downloading a new recipes.json file
+        function saveRecipes() {
+            const recipesJson = JSON.stringify(recipes, null, 2);
+            const blob = new Blob([recipesJson], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'recipes.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showSuccess('Recipe saved! Please upload the new recipes.json file to GitHub to sync changes.');
+        }
 
         // Form submission handler
         document.getElementById('recipe-form').addEventListener('submit', function(e) {
@@ -359,7 +328,8 @@
                 category: document.getElementById('recipe-category').value,
                 servings: document.getElementById('recipe-servings').value,
                 ingredients: document.getElementById('recipe-ingredients').value,
-                instructions: document.getElementById('recipe-instructions').value
+                instructions: document.getElementById('recipe-instructions').value,
+                lastModified: new Date().toISOString()
             };
 
             if (editingId) {
@@ -375,69 +345,18 @@
                 recipes.push(recipe);
             }
 
-            localStorage.setItem('recipes', JSON.stringify(recipes));
-            
+            saveRecipes();
             this.reset();
             displayRecipes();
         });
-
-        // Format text to list items
-        function formatToList(text) {
-            return text.split('\n')
-                .filter(line => line.trim() !== '')
-                .map(line => `<li>${line.trim()}</li>`)
-                .join('');
-        }
-
-        // Modal functions
-        function openModal(recipe) {
-            const modal = document.getElementById('recipe-modal');
-            const modalContent = document.getElementById('modal-recipe-content');
-            
-            modalContent.innerHTML = `
-                <h2>${recipe.name}</h2>
-                <div class="modal-tags">
-                    <span class="category-tag">${recipe.category}</span>
-                    <span class="servings-tag">${recipe.servings} person${recipe.servings > 1 ? 'er' : ''}</span>
-                </div>
-                <div class="recipe-content">
-                    <h4 class="section-title">Ingredienser:</h4>
-                    <ul class="ingredients-list">
-                        ${formatToList(recipe.ingredients)}
-                    </ul>
-                    <h4 class="section-title">Fremgangsmåde:</h4>
-                    <ol class="instructions-list">
-                        ${formatToList(recipe.instructions)}
-                    </ol>
-                </div>
-                <div class="recipe-actions">
-                    <button class="edit-btn" onclick="editRecipe(${recipe.id}); closeModal()">Edit</button>
-                    <button class="delete-btn" onclick="deleteRecipe(${recipe.id}); closeModal()">Delete</button>
-                </div>
-            `;
-            
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('recipe-modal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('recipe-modal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        }
 
         // Display recipes
         function displayRecipes(filteredRecipes = recipes) {
             const container = document.getElementById('recipes-container');
             container.innerHTML = '';
+
+            // Sort recipes by last modified date
+            filteredRecipes.sort((a, b) => new Date(b.lastModified) - new Date(a.lastModified));
 
             filteredRecipes.forEach(recipe => {
                 const card = document.createElement('div');
@@ -463,23 +382,36 @@
             if (recipe) {
                 document.getElementById('recipe-name').value = recipe.name;
                 document.getElementById('recipe-category').value = recipe.category;
-                document.getElementById('recipe-servings').value = recipe.servings || '4';
+                document.getElementById('recipe-servings').value = recipe.servings;
                 document.getElementById('recipe-ingredients').value = recipe.ingredients;
                 document.getElementById('recipe-instructions').value = recipe.instructions;
                 editingId = id;
                 document.querySelector('button[type="submit"]').textContent = 'Update Recipe';
-                // Scroll to form
                 document.getElementById('recipe-form').scrollIntoView({ behavior: 'smooth' });
+                if (window.innerWidth <= 768) {
+                    closeModal();
+                }
             }
         }
 
         // Delete recipe
         function deleteRecipe(id) {
             if (confirm('Are you sure you want to delete this recipe?')) {
-                recipes = recipes.filter(recipe => recipe.id !== id);
-                localStorage.setItem('recipes', JSON.stringify(recipes));
+                recipes = recipes.filter(r => r.id !== id);
+                saveRecipes();
+                showSuccess('Recipe deleted successfully!');
                 displayRecipes();
             }
+        }
+
+        // Show success message
+        function showSuccess(message) {
+            const successDiv = document.getElementById('success-message');
+            successDiv.textContent = message;
+            successDiv.style.display = 'block';
+            setTimeout(() => {
+                successDiv.style.display = 'none';
+            }, 3000);
         }
 
         // Filter recipes
@@ -500,8 +432,48 @@
             displayRecipes(filteredRecipes);
         }
 
-        // Initial display
-        displayRecipes();
+        // Modal functions
+        function openModal(recipe) {
+            const modal = document.getElementById('recipe-modal');
+            const modalContent = document.getElementById('modal-content');
+            
+            modalContent.innerHTML = `
+                <h2>${recipe.name}</h2>
+                <p><strong>Category:</strong> ${recipe.category}</p>
+                <p><strong>Servings:</strong> ${recipe.servings}</p>
+                <h3>Ingredients:</h3>
+                <pre>${recipe.ingredients}</pre>
+                <h3>Instructions:</h3>
+                <pre>${recipe.instructions}</pre>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('recipe-modal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('recipe-modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Add a refresh button
+        const refreshButton = document.createElement('button');
+        refreshButton.textContent = 'Refresh Recipes';
+        refreshButton.style.marginBottom = '20px';
+        refreshButton.onclick = loadRecipes;
+        document.querySelector('.search-container').insertBefore(refreshButton, document.querySelector('.search-container').firstChild);
+
+        // Load recipes initially
+        loadRecipes();
+
+        // Refresh recipes every minute
+        setInterval(loadRecipes, 60000);
     </script>
 </body>
-</html>
+</html> 
